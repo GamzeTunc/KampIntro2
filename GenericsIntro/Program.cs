@@ -8,6 +8,11 @@ Console.WriteLine("Hello, World!");
 MyList<string> isimler=new MyList<string> ();
 isimler.Add("Gamze");
 isimler.Add("Yaprak");
-
+isimler.Add("Erol");
+isimler.Add("Permin");
+isimler.Add("Duran");
+isimler.GetAll();
 isimler.Delete("Yaprak");
+
+isimler.GetAll();
 

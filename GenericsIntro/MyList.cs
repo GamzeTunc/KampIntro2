@@ -27,7 +27,7 @@ namespace GenericsIntro
             
             }
             items[items.Length - 1] = item; //item olarak geleni [son elememan sayısı] na ekliyoruz
-            Console.WriteLine(item); //item i ekrana yazdırıyoruz
+            Console.WriteLine("Add "+item); //item i ekrana yazdırıyoruz
         }
 
 
@@ -36,17 +36,36 @@ namespace GenericsIntro
         {
             T[] tempArray = items; // referans değer old için 101 e bakıyor çünkü biraz sonra alttaki yeni eleman eklediği için eskiler silincekti ki bunun ile korudum onları
             items = new T[items.Length -1];//ekle metodu çalıştığında items en yukarıda var o kaç ise ona 1 ekle ve yeni items bu olsun diyor bu sayede array da artış sağlayabiliyoruz 
-            for (int i = 0; i < tempArray.Length-1; i++)
+
+            int i = 0; //eski dizi
+            int j = 0; //yeni dizi
+            
+            while ( i < tempArray.Length)
             {
-                items[i] = tempArray[i];
+                if (a.Equals(tempArray[i])) //Equals içerisinde gezmemi sağlayan metot. 
+                {
+                    i++; //sadece i yi arttırırım çünkü burası i deki silmek istediğim sayının index numarası bu sayede osayının geçmesini sağlarım
+                }
+                else
+                {
+                    items[j] = tempArray[i]; //yeni dizi ye eski dizinin elemanlarını eklerim
+                    i++; //eski dizinin index sayısını 1 arttırırım
+                    j++; //yeni dizinin index sayısını 1 arttırırım
+                }               
 
             }
-            foreach (var item in items)
-            {
-                item[]
-            }
-            Console.WriteLine(a); //item i ekrana yazdırıyoruz
+         
+            Console.WriteLine("Delete"+a); //item i ekrana yazdırıyoruz
 
         }
+        public void GetAll()
+        {
+            Console.WriteLine("Start GelAll()");
+            foreach (T item in items)
+                Console.WriteLine(item);
+            Console.WriteLine("End GelAll()");
+        }
+            
+        
     }
 }
